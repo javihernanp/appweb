@@ -295,7 +295,7 @@ def admincarrito():
 
 @app.route('/productupdate')
 def productupdate():
-    file = "C:\\Users\\ererer\\Desktop\\basico-funciona\\templates\\json\\productos.json"
+    file = "C:\\json\\productos.json"
     json_data=open(file).read()
     json_obj = json.loads(json_data)
     cursor = mysql.connection.cursor()
