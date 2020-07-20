@@ -1,0 +1,20 @@
+{%extends "index.html" %}
+{% block body %}
+<script src="{{ url_for('static', filename='js/login.js') }}"></script>
+
+<div class="jumbotron">
+	
+	<div id="errorAlert" class="alert alert-danger errorcaja" role="alert"></div>
+    <h2 class="formulariotitulo">Login</h2>
+    
+      <form id="cform">
+  
+		<label class="labelformulario">Correo</label>
+		<input type="text" class="form-control productoformulario" placeholder="ejemplo@ejemplo.com" id="email" >
+		<label class="labelformulario">Password</label>
+		<input type="password" class="form-control productoformulario" id="password" required>
+		<button type="submit" class="btn btn-primary btn-enviar botonaccion">Enviar</button>
+		</form>
+    </div>
+
+{% endblock %}

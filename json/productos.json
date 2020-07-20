@@ -1,0 +1,11 @@
+
+[
+{"nombre":"monitor a","precio":"23","tipo":"monitor","descripcion":"aqui se pone la descripcion del producto","cantidad":"11"},
+{"nombre":"monitor b ","precio":"23","tipo":"monitor","descripcion":"aqui esta la descripcion","cantidad":"11"},
+{"nombre":"monitor c ","precio":"23","tipo":"monitor","descripcion":"aqui esta la descripcion","cantidad":"11"},
+{"nombre":"teclado z ","precio":"23","tipo":"teclado","descripcion":"aqui esta la descripcion","cantidad":"11"},
+{"nombre":"teclado b ","precio":"23","tipo":"teclado","descripcion":"aqui esta la descripcion","cantidad":"11"},
+{"nombre":"teclado c ","precio":"23","tipo":"teclado","descripcion":"aqui esta la descripcion","cantidad":"11"},
+{"nombre":"raton a ","precio":"23","tipo":"raton","descripcion":"aqui esta la descripcion","cantidad":"11"},
+{"nombre":"raton b ","precio":"23","tipo":"raton","descripcion":"aqui esta la descripcion","cantidad":"11"}
+]

@@ -1,0 +1,54 @@
+{%extends "index.html" %}
+{% block body%}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}">
+<div class="sidenav">
+  <a href="/products">Ver todos los productos</a>
+  <a href="/monitor">Monitores</a>
+  <a href="/teclado">Teclados</a>
+  <a href="/raton">Ratones</a>
+</div>
+
+<div class="main text-center">
+	
+   <table class="table table-striped table-hover table-bordered table-sm bg-white">
+	<thead>
+          <tr>
+            
+            <td>Nombre</td>
+            <td>Precio</td>
+            <td>tipo</td>
+            <td>cantidad</td>
+          </tr>
+        </thead>
+		<tbody>
+			{% for datos in producto %}
+
+            <tr>
+            
+            <td>{{datos.1}}</td>
+            <td>{{datos.2}}</td>
+            <td>{{datos.3}}</td>
+			<td>{{datos.5}}</td>
+			 <td>
+              <a href="/products" class="btn btn-secondary">volver</a>
+			  
+			 {% if datos.5 > 0 %}
+              <a href="/comprar/{{datos.0}}" class="btn btn-danger">Comprar</a>
+			  {% else %}
+			  <a href="/products" class="btn  btn-secondary">No disponible, Volver</a>
+			  {% endif %}
+			  
+            </td>
+          </tr>
+		</tbody>
+			
+	</table>
+		
+			
+			<img src="/static/photos/{{datos.0}}.jpg" class="rounded mx-auto d-block img-rounded" alt="imagen del producto {{datos.1}}">
+			<div class="caption">
+            <p>{{datos.4}}</p>
+			</div>
+	{% endfor %}
+</div>
+{%endblock%}

@@ -1,0 +1,86 @@
+{%extends "index.html" %}
+{% block body%}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}">
+
+<div class="sidenav">
+  <a href="/products">Ver todos los productos</a>
+  <a href="/monitor">Monitores</a>
+  <a href="/teclado">Teclados</a>
+  <a href="/raton">Ratones</a>
+</div>
+
+<div class="main">
+  {% if session.logged_in %}
+   <table class="table table-striped table-hover table-bordered table-sm bg-white">
+	<thead>
+          <tr>
+            
+            <td>Nombre</td>
+            <td>Precio</td>
+            <td>tipo</td>
+            <td>cantidad</td>
+			<td>Opciones</td>
+			{% if session['uid'] == 1 %}
+			<td>Opadmin</td>
+			{% endif %}
+          </tr>
+        </thead>
+		<tbody>
+			{% for product in products %}
+
+            <tr>
+            
+            <td>{{product.1}}</td>
+            <td>{{product.2}}</td>
+            <td>{{product.3}}</td>
+			<td>{{product.5}}</td>
+			 <td>
+              <a href="/detalles/{{product.0}}" class="btn btn-secondary">Detalles</a>
+			
+			 {% if product.5 > 0 %}
+				
+              <a href="/comprar/{{product.0}}" class="btn btn-danger">Comprar</a>
+			  {% endif %}
+            </td>
+			{% if session['uid'] == 1 %}
+			<td>
+              <a href="/editproduct/{{product.0}}" class="btn btn-primary ">Editar</a>
+              <a href="/deleteproduct/{{product.0}}" class="btn btn-danger btn-delete-product">Borrar</a>
+			 
+            </td>
+			{% endif %}
+          </tr>
+		</tbody>
+			{% endfor %}
+	</table>
+  {% else %}
+	<table class="table table-striped table-hover table-bordered table-sm bg-white">
+	<thead>
+          <tr>
+            
+            <td>Nombre</td>
+            <td>Precio</td>
+            <td>tipo</td>
+            <td>cantidad</td>
+          </tr>
+        </thead>
+		<tbody>
+			{% for product in products %}
+
+            <tr>
+            
+            <td>{{product.1}}</td>
+            <td>{{product.2}}</td>
+            <td>{{product.3}}</td>
+			<td>{{product.5}}</td>
+			 <td>
+              <a href="/detalles/{{product.0}}" class="btn btn-secondary">Detalles</a>
+              
+            </td>
+          </tr>
+		</tbody>
+			{% endfor %}
+	{% endif %}
+	</table>
+</div>
+{%endblock%}

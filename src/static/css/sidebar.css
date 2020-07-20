@@ -1,0 +1,38 @@
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: absolute;
+
+  
+  left: 0;
+  
+ z-index: 1;
+
+}
+
+.sidenav a {
+  padding: 15px 15px 20px 20px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  
+}
+
+.sidenav a:hover {
+  color: black;
+}
+
+.main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+
+}
+img {
+
+    max-width: 100%;
+	height: auto;
+}

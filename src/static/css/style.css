@@ -1,0 +1,16 @@
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  
+  padding:5px;
+  width: 100%;
+  background-color: #c0c0c0;
+  color: black;
+  text-align: center;
+}
+
+.titulo {
+	color: #206aaa;
+	margin-bottom:20px;
+}

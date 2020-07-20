@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Appweb</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script src="{{ url_for('static', filename='js/confirmar.js') }}"></script>
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/formu.css') }}">
+     
+    
+  
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">AppWeb</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="/">Incio</a></li>
+       <li><a href="/products">Productos</a></li>
+      
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+	{% if session.logged_in %}
+		{% if session['uid'] == 1 %}
+			<li><a href="/admincarrito"><span class="glyphicon glyphicon-shopping-cart"></span> Carrito</a></li>
+		{% else %}
+			<li><a href="/carrito/{{session.uid}}"><span class="glyphicon glyphicon-shopping-cart"></span> Carrito</a></li>
+		{% endif %}
+	  <li><a href="/profile/{{session.uid}}"><span class="glyphicon glyphicon-user"></span> Conectado</a></li>
+      <li><a href="/out"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+	{% else %}
+      <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Registrarse</a></li>
+      <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+	{% endif %}
+    </ul>
+  </div>
+</nav>
+{% block body%}
+<div class="text-center jumbotron">
+  <h3 class="text-center titulo">Appweb</h3>
+  <img src="{{ url_for('static', filename='photos/index.jpg') }}" class="rounded mx-auto d-block img-rounded" alt="index imagen">
+</div>
+
+{%endblock%}
+
+<div class="footer">
+  <p>página de prueba de AppWeb</p>
+</div>
+
+</body>
+</html>

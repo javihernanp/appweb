@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Appweb</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+  
+  <script src="{{ url_for('static', filename='js/regis.js') }}"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/formu.css') }}">
+
+</head>
+ <body>
+ <body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">AppWeb</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="/">Incio</a></li>
+       <li><a href="/products">Productos</a></li>
+      
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+	{% if session.logged_in %}
+	  <li><a href="/profile/{{session.uid}}"><span class="glyphicon glyphicon-user"></span> Conectado</a></li>
+      <li><a href="/out"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+	{% else %}
+      <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Registrarse</a></li>
+      <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+	{% endif %}
+    </ul>
+  </div>
+</nav>
+      <div class="jumbotron">
+	  <div id="successAlert" class="alert alert-success successcaja" role="alert"></div>
+      <div id="errorAlert" class="alert alert-danger errorcaja" role="alert" ></div>
+    <h2 class="formulariotitulo">Registrarse</h2>
+                         
+                                <form class="form-signin" id="cform">
+                             
+                                  
+                                        
+                                        <label class="labelformulario">Nombre</label>
+										<input type="text" class="form-control productoformulario" placeholder="Jose"  id="nombre" >
+										<label class="labelformulario">Apellido</label>
+										<input type="text" class="form-control productoformulario" placeholder="Pérez"  id="apellido" >
+										<label class="labelformulario">DNI</label>
+										<input type="text" class="form-control productoformulario" placeholder="11111111B"  id="dni" >
+										<label class="labelformulario">Direccion</label>
+										<input type="text" class="form-control productoformulario" id="direccion" >
+										<label class="labelformulario">Telefono</label>
+										<input type="text" class="form-control productoformulario" placeholder="Telefono" id="phone" >
+										<label class="labelformulario">email</label>
+										<input type="text" class="form-control productoformulario" placeholder="ejemplo@ejemplo.com" id="email" >
+										<label class="labelformulario">Contraseña</label>
+										<input type="password" class="form-control productoformulario"  id="password" >
+                                      <button type="submit" class="btn btn-primary btn-enviar botonaccion">Register</button>
+                                </form>
+                                <br/>
+                
+                
+                 
+                   
+ <div class="footer">
+  <p>página de prueba de AppWeb</p>
+</div>
+
+</body>
+</html>
+ 
